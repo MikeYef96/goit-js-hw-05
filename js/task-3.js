@@ -10,11 +10,15 @@ class Storage {
   }
 
   addItem(item) {
+    this.item = item;
     this.items.push(item);
   }
 
   removeItem(item) {
-    this.items = this.items.filter((items) => items !== item);
+    this.item = item;
+    if (this.items.includes(this.item))
+      return this.items.splice(this.items.indexOf(this.item), 1);
+    else return "Sorry, there's nothing";
   }
 }
 
